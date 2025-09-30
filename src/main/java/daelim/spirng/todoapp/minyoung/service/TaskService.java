@@ -6,7 +6,7 @@ import daelim.spirng.todoapp.minyoung.dto.TaskResponse;
 import daelim.spirng.todoapp.minyoung.repository.TaskRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional; // ✅ Spring TX
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -35,7 +35,7 @@ public class TaskService {
         return toRes(t);
     }
 
-    @Transactional // 쓰기 작업만 readOnly 해제
+    @Transactional
     public Long create(TaskRequest req) {
         boolean done = req.getCompleted() != null && req.getCompleted();
         Task t = Task.builder()
